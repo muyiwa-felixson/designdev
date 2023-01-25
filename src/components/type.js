@@ -9,18 +9,18 @@ const Wrapper = styled.div`
     font-family: ${props=> props.fontFamily && getValue(props.fontFamily)};
     font-size: ${props=> props.fontSize && getValue(props.fontSize)}px;
     line-height: ${props=> props.lineHeight && getValue(props.lineHeight)}px;
-    color: ${props=> short(props.theme.mode, 'sys.on-surface.value').value};
+    color: ${props=> short(props.theme.mode, `sys.${props.color}.value`).value};
 `;
 
 const Text = props => {
     const { type, color, others} = props;
     const typo = type ? type.split(".").reduce((o, i) => o[i], Typography) : null;
     // console.log(typo)
-    return <Wrapper {...typo}>{props.children}</Wrapper>
+    return <Wrapper {...typo} color={color}>{props.children}</Wrapper>
 }
 Text.defaultProps = {
     type: 'title.large.value',
-    color: ''
+    color: 'on-surface'
   };
   
   Text.propTypes = {

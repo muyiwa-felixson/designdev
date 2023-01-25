@@ -19,6 +19,9 @@ const LayoutWrapper = styled.div`
         padding: 0 24px;
         align-items: center;
     }
+    & .viewer{
+        padding: 24px;
+    }
 `;
 
 
@@ -33,8 +36,7 @@ const Layout = props => {
                 <Text>Component Preview</Text>
                 <Switch onClick={()=> setDynamicToken(dynamicToken === 'light' ? 'dark':'light')} />
             </div>
-        {children}
-        
+        <div className="viewer">{children}</div>
         </LayoutWrapper>
     </ThemeProvider>
 }
