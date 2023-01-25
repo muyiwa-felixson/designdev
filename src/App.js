@@ -3,11 +3,14 @@ import './App.css';
 import Layout from './layout';
 import Text from './components/type';
 import Button from './components/button';
+import { Banner } from './presentation';
 
 function App() {
+  
   return (
     <Layout>
-      <Text type={'title.medium.value'}>Buttons</Text>
+      {/* <Text type={'title.medium'}>Buttons</Text> */}
+      <Banner title="Button" />
       <br/>
       <div>
         <Button>Button</Button>

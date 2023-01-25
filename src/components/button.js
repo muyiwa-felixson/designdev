@@ -1,38 +1,39 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { sys, getValue, short, getSysValue, getCoreValue } from "../utility/token";
+import { getTheme, getCore, getSystem} from "../utility/token";
+import Text from "./type";
 
 const Wrapper = styled.div`
     display: inline-grid;
     align-items: center;
     grid-template-columns:${props=> props.leftIcon ? 'max-content': ''} auto ${props=> props.rightIcon ? 'max-content': ''};
-    background: ${props=> short(props.theme.mode, `sys.${props.color}.value`).value};
-    height: ${props=> getValue(getSysValue(`sys.dimension.button-height.${props.size}.value`))};
-    border-radius: ${props=> getValue(getSysValue(`sys.border-radius.medium.value`))};
-    color: ${props=> short(props.theme.mode, `sys.on-${props.color}.value`).value};
-    padding: 0 ${getCoreValue('{core.dimension.16.value}')};
-    grid-gap: ${getCoreValue('{core.dimension.8.value}')};
+    background: ${props=> getTheme(props.theme.mode, props.color)};
+    height: ${props=> getSystem(`dimension.button-height.${props.size}`)};
+    border-radius: ${props=> getSystem(`border-radius.medium`)};
+    color: ${props=> getTheme(props.theme.mode, `on-${props.color}`)};
+    padding: 0 ${getCore('{dimension.16}')};
+    grid-gap: ${getCore('{dimension.8}')};
 
     ${props=> props.type === 'outline' && css`
         background: none;
-        color: ${props=> short(props.theme.mode, `sys.on-surface.value`).value};
-        border: 1px solid ${props=> short(props.theme.mode, `sys.outline.value`).value};
+        color: ${props=> getTheme(props.theme.mode, `on-surface`)};
+        border: 1px solid ${props=> getTheme(props.theme.mode, `outline`)};
     `}
     ${props=> props.type === 'outline-variant' && css`
         background: none;
-        color: ${props=> short(props.theme.mode, `sys.on-surface.value`).value};
-        border: 1px solid ${props=> short(props.theme.mode, `sys.outline-variant.value`).value};
+        color: ${props=> getTheme(props.theme.mode, `on-surface`)};
+        border: 1px solid ${props=> getTheme(props.theme.mode, `outline-variant`)};
     `}
     ${props=> props.type === 'tertiary' && css`
         background: none;
-        color: ${props=> short(props.theme.mode, `sys.on-surface.value`).value};
+        color: ${props=> getTheme(props.theme.mode, `on-surface`)};
         border: none;
     `}
 `;
 
 const Button = props=> {
     const {children, leftIcon, rightIcon} = props;
-    return <Wrapper {...props}>{leftIcon && <i className={leftIcon} /> }{children}{leftIcon && <i className={rightIcon} /> }</Wrapper>
+    return <Wrapper {...props}>{leftIcon && <i className={leftIcon} /> }<Text type="label.large">{children}</Text>{leftIcon && <i className={rightIcon} /> }</Wrapper>
 }
 
 Button.defaultProps = {

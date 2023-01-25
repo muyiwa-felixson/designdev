@@ -7,6 +7,24 @@ export const dynamic = {
   dark: Tokens.Dark,
 };
 
+
+export const getTheme = (mode, route) =>{
+    return short(mode, `sys.${route}.value`).value;
+}
+
+export const getCore = (string) =>{
+    return getCoreValue(`core.${string}.value`);
+}
+export const getSystem = (string) =>{
+    let result = getSysValue(`sys.${string}.value`)
+    if (result.includes("{")) {
+        result = getCoreValue(`${result}`).value;
+      }
+    return result;
+}
+export const getSystemObject = (string) =>{
+    return getSysValue(string);
+}
 export const short = (mode, route) => {
   return getCoreValue(route.split(".").reduce((o, i) => o[i], dynamic[mode]));
 };

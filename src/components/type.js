@@ -1,25 +1,22 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { short, getValue, sys } from "../utility/token";
+import { getSystemObject, getTheme, getValue, getSystem } from "../utility/token";
 
-
-const Typography = sys.typography;
 const Wrapper = styled.div`
     display: inline-block;
     font-family: ${props=> props.fontFamily && getValue(props.fontFamily)};
     font-size: ${props=> props.fontSize && getValue(props.fontSize)}px;
     line-height: ${props=> props.lineHeight && getValue(props.lineHeight)}px;
-    color: ${props=> short(props.theme.mode, `sys.${props.color}.value`).value};
+    color: ${props=> getTheme(props.theme.mode,`${props.color}`)};
 `;
 
 const Text = props => {
-    const { type, color, others} = props;
-    const typo = type ? type.split(".").reduce((o, i) => o[i], Typography) : null;
-    // console.log(typo)
+    const { type, color} = props;
+    const typo = type ? getSystemObject(`typography.${type}.value`) : null;
     return <Wrapper {...typo} color={color}>{props.children}</Wrapper>
 }
 Text.defaultProps = {
-    type: 'title.large.value',
+    type: 'title.large',
     color: 'on-surface'
   };
   

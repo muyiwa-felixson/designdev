@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { sys, getValue, short, getSysValue } from "../utility/token";
+import { getTheme } from "../utility/token";
 
 const Wrapper = styled.div`
     display: inline-block;
@@ -22,8 +22,7 @@ const SwitchInput = styled.input.attrs((props) => ({
     padding: 4px;
     transition: 0.2s;
     border-radius: 16px;
-    background: ${props=> short(props.theme.mode, 'sys.surface-variant.value').value};
-    /* width: ${getValue(getSysValue('sys.dimension.button-height.medium.value'))}; */
+    background: ${props=> getTheme(props.theme.mode, 'surface-variant')};
     width: 48px;
     height: 24px;
     box-sizing: border-box;
@@ -38,7 +37,7 @@ const SwitchInput = styled.input.attrs((props) => ({
   
     &:checked {
       cursor: pointer;
-      background: ${props=> short(props.theme.mode, 'sys.primary.value').value};
+      background: ${props=> getTheme(props.theme.mode, 'primary')};
       padding-left: 28px;
     }
   `;
