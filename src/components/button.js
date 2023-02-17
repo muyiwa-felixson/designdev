@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 
 const Button = props=> {
     const {children, leftIcon, rightIcon} = props;
-    return <Wrapper {...props}>{leftIcon && <i className={leftIcon} /> }<Text type="label.large" color="overide">{children}</Text>{leftIcon && <i className={rightIcon} /> }</Wrapper>
+    return <Wrapper {...props}>{leftIcon && <i className={leftIcon} /> }<Text type="label.large">{children}</Text>{leftIcon && <i className={rightIcon} /> }</Wrapper>
 }
 
 Button.defaultProps = {

@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import ButtonPresentation from './presentation/button';
 import DocumentationPresentation from './presentation/documentation.core';
 import DocumentationSystem from './presentation/documentation.system';
-import DemoPage1 from './presentation/demo_page';
+import DemoPage1 from './Demo';
 
 function App() {
   

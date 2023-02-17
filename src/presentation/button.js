@@ -4,7 +4,7 @@ import { Banner } from '../presentation';
 function ButtonPresentation() {
   
   return (
-    <>
+    <div className="viewer">
       <Banner title="Button" />
       <br/>
       <div>
@@ -22,7 +22,7 @@ function ButtonPresentation() {
       <div>
         <Button type="default" color="error">Button</Button>
       </div>
-      </>
+      </div>
   );
 }
 

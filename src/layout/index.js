@@ -5,10 +5,11 @@ import { Switch } from "../components/switch";
 import Text from "../components/type";
 
 const LayoutWrapper = styled.div`
-    min-width: 100vw;
-    min-height: 100vh;
+    /* width: 100vw; */
+    height: 100vh;
     background: ${props=>  getTheme(props.theme.mode, 'surface')};
     position:relative;
+    color: ${props=> getTheme(props.theme.mode, 'on-surface')};
 
     & .layoutbar{
         height: 48px;
@@ -39,7 +40,7 @@ const Layout = props => {
     // console.log(short(dynamicToken, 'sys.surface.value').value)
     return <ThemeProvider theme={{mode: dynamicToken}}>
         <LayoutWrapper>
-        <div className="viewer">{children}</div>
+        <div>{children}</div>
             <div className="layoutbar">
                 <Text type="body.medium">Theme Switcher</Text>
                 <Switch onClick={()=> setDynamicToken(dynamicToken === 'light' ? 'dark':'light')} />

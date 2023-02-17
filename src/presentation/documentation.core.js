@@ -130,11 +130,11 @@ const [inView, setInView] = useState(0);
 };
 function DocumentationPresentation() {
   return (
-    <>
+    <div className="viewer">
       <Banner title="Core" />
       <br />
       <RenderSections path={core.core} />
-    </>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import PropTypes from "prop-types";
 import { getSystemObject, getTheme, getValue } from "../utility/token";
 
@@ -7,7 +7,9 @@ const Wrapper = styled.span`
     font-family: ${props=> props.fontFamily && getValue(props.fontFamily)};
     font-size: ${props=> props.fontSize && getValue(props.fontSize)}px;
     line-height: ${props=> props.lineHeight && getValue(props.lineHeight)}px;
-    color: ${props=> props.color !== 'overide' ? getTheme(props.theme.mode,`${props.color}`) : 'inherit'};
+    ${props => props.color && css`
+      color: ${props=> getTheme(props.theme.mode,`${props.color}`)};
+    `}
     font-weight: ${props=> props.fontWeight && getValue(props.fontWeight)};
 `;
 
@@ -18,7 +20,6 @@ const Text = props => {
 }
 Text.defaultProps = {
     type: 'title.large',
-    color: 'on-surface'
   };
   
   Text.propTypes = {

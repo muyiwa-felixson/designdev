@@ -156,11 +156,11 @@ const RenderSections = ({ path }) => {
 };
 function DocumentationSystem() {
   return (
-    <>
+    <div className="viewer">
       <Banner title="System" />
       <br />
       <RenderSections path={sys.sys} />
-    </>
+    </div>
   );
 }
 

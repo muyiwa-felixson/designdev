@@ -24,7 +24,7 @@ const BannerWrapper = styled.div`
 `
 
 export const Banner = props => {
-    return<BannerWrapper>
+    return <BannerWrapper>
         <div><Logo /></div>
         <Text type="display.small">{props.title}</Text>
     </BannerWrapper>
