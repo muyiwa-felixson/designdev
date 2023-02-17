@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import Text from '../../components/type';
-import { getSystemObject, getTheme, getCore, getSystem }from '../../utility/token';
+import { getTheme, getCore, getSystem }from '../../utility/token';
 
 export const MobileWrapper = styled.div`
     position: relative;
