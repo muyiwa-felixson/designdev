@@ -16,7 +16,7 @@ export const Header = styled.div`
 
     & .wrapper{
         height: 280px;
-        background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4));
+        /* background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)); */
         padding: ${getCore('{dimension.56}')} ${getCore('{dimension.16}')};
         
         color: ${props=> getTheme(props.theme.mode, 'on-primary')};
@@ -149,7 +149,7 @@ export const MenuButton = styled.div`
 `;
 
 export const Menu = props => {
-    return <MenuButton>
+    return <MenuButton {...props}>
         {props.icon}
         <Text type="label.medium">{props.label}</Text>
     </MenuButton>
