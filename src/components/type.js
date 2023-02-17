@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { getSystemObject, getTheme, getValue, getSystem } from "../utility/token";
+import { getSystemObject, getTheme, getValue, getCore } from "../utility/token";
 
-const Wrapper = styled.div`
+const Wrapper = styled.span`
     display: inline-block;
     font-family: ${props=> props.fontFamily && getValue(props.fontFamily)};
     font-size: ${props=> props.fontSize && getValue(props.fontSize)}px;
     line-height: ${props=> props.lineHeight && getValue(props.lineHeight)}px;
-    color: ${props=> getTheme(props.theme.mode,`${props.color}`)};
+    color: ${props=> props.color !== 'overide' ? getTheme(props.theme.mode,`${props.color}`) : 'inherit'};
+    font-weight: ${props=> props.fontWeight && getValue(props.fontWeight)};
 `;
 
 const Text = props => {

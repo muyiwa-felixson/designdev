@@ -8,6 +8,7 @@ export const dynamic = {
 };
 
 
+
 export const getTheme = (mode, route) =>{
     return short(mode, `sys.${route}.value`).value;
 }
@@ -40,8 +41,11 @@ export const getSysValue = (string) => {
 
 export const getValue = (element) => {
   let result = element;
-  if (element.includes("{")) {
+  if(result.includes("{")) {
     result = getCoreValue(`${element}`).value;
+    if(result.includes("{")) {
+      result = getValue(result);
+    }
   }
   return result;
 };

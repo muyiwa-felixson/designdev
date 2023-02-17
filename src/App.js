@@ -1,32 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import Layout from './layout';
-import Text from './components/type';
-import Button from './components/button';
-import { Banner } from './presentation';
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import ButtonPresentation from './presentation/button';
+import DocumentationPresentation from './presentation/documentation.core';
+import DocumentationSystem from './presentation/documentation.system';
+import DemoPage1 from './presentation/demo_page';
 
 function App() {
   
   return (
     <Layout>
-      {/* <Text type={'title.medium'}>Buttons</Text> */}
-      <Banner title="Button" />
-      <br/>
-      <div>
-        <Button>Button</Button>
-      </div>
-      <br/>
-      <div>
-        <Button type="outline">Button</Button>
-      </div>
-      <br/>
-      <div>
-        <Button type="tertiary">Button</Button>
-      </div>
-      <br/>
-      <div>
-        <Button type="default" color="error">Button</Button>
-      </div>
+       <Router>
+      <Routes>
+        <Route exact path="/" element={<ButtonPresentation />}></Route>
+        <Route exact path="/documentation/core" element={<DocumentationPresentation />}></Route>
+        <Route exact path="/documentation/system" element={<DocumentationSystem />}></Route>
+        <Route exact path="/demo" element={<DemoPage1 />}></Route>
+        </Routes>
+      </Router>
     </Layout>
   );
 }

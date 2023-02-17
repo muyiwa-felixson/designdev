@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Logo } from "../assets/images/logo";
 import Text from "../components/type";
 import {getTheme, getCore, getSystem} from "../utility/token";
 
@@ -13,6 +14,9 @@ const BannerWrapper = styled.div`
     & img{
         width: ${getCore('dimension.64')};
     }
+    & svg{
+        fill: ${props=> getTheme(props.theme.mode, 'on-surface')};
+    }
     & div{
         display: flex;
         align-items: center;
@@ -21,7 +25,7 @@ const BannerWrapper = styled.div`
 
 export const Banner = props => {
     return<BannerWrapper>
-        <div><Text type="body.large"><img  src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/hvbajl03mwaln0fgelhz" />Securrency Design System</Text></div>
-        <Text size="title.medium">{props.title}</Text>
+        <div><Logo /></div>
+        <Text type="display.small">{props.title}</Text>
     </BannerWrapper>
 }
