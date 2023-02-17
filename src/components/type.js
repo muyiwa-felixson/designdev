@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { getSystemObject, getTheme, getValue, getCore } from "../utility/token";
+import { getSystemObject, getTheme, getValue } from "../utility/token";
 
 const Wrapper = styled.span`
     display: inline-block;

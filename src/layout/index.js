@@ -1,6 +1,6 @@
 import styled, {ThemeProvider} from "styled-components"
 import { useState } from "react"
-import { getTheme, getCore, getSystem, getSystemObject} from "../utility/token";
+import { getTheme} from "../utility/token";
 import { Switch } from "../components/switch";
 import Text from "../components/type";
 

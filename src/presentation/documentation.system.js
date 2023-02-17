@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Text from "../components/type";
 import { Banner } from "../presentation";
-import { core, sys } from "../utility/token";
+import { sys } from "../utility/token";
 import {
   Grider,
   Liner,
